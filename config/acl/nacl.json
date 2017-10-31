@@ -1,0 +1,30 @@
+[
+	{
+		"group": "Developer",
+		"permissions": [{
+				"resource": "*",
+				"methods": "*",
+				"action": "allow"
+			}
+		]
+	},{
+		"group": "ServiceAdmin",
+		"permissions": [{
+				"resource": "users",
+				"methods": "*",
+				"action": "allow"
+			}, {
+				"resource": "clients",
+				"methods": "*",
+				"action": "allow"
+			}
+		]
+	},{
+		"group": "ClientAdmin",
+		"permissions": [{
+				"resource": "users",
+				"methods": "*",
+				"action": "allow"
+			}]
+	}
+]

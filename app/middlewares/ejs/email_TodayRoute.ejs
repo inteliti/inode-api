@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+		<meta name="x-apple-disable-message-reformatting" />
+		<title></title> 
+		<style>
+			html,
+			body {
+				margin: 0 auto !important;
+				padding: 0 !important;
+				height: 100% !important;
+				width: 100% !important;
+			}
+		</style>
+	</head>
+	<body>
+		<center style="
+				background-color: #111111;
+				color: #424245 !important;
+				font: normal 16px/162% Arial;
+				width:100%;">
+			<div style="
+				 width:600px;
+				 ">
+
+				<!-- 
+				OPTIONAL: this pre-header text will show ONLY on mobile
+				clients as intro text. Hidden on email-body.
+				-->
+				<div style="
+					 display:none;
+					 font-size:1px;
+					 line-height:1px;
+					 max-height:0px;
+					 max-width:0px;
+					 opacity:0;
+					 overflow:hidden;">
+
+				</div>
+
+				<!-- HEADER -->
+				<div style="
+					 background-color: #111111;
+					 padding: 20px;
+					 ">
+					<img src="http://i.imgur.com/KhCXJSX.png"
+						 width="100px"
+						 alt="" border="0" />
+					<h2 style="
+						color: #fdfdfd;
+						font-weight: 300;
+						margin:20px 0 0 0;
+						">
+						Fuel4U
+					</h2>
+				</div>
+
+
+				<!-- CONTENT -->
+				<div style="
+					 background-color: #fdfdfd;
+					 padding: 50px;
+					 ">
+
+
+					<p>
+						Hi<b> <%= parameter.name%></b>, you have a new route today,
+						from <b><%= parameter.departure%>, <%= parameter.departureState%></b> 
+						to <b> <%= parameter.destination%>, <%= parameter.destinationState%></b>.
+						<%if(parameter.stopQty==1){%>
+						With one pickup or delivery stop.
+						<%}%>
+						<%if(parameter.stopQty>1){%>
+						With <%= parameter.stopQty%> pickups or deliveries stops.
+						<%}%>
+					</p>
+					
+					<%if(parameter.stopQty>0){%>
+
+					<%for(var i=0; i < parameter.stops.length; i++){%>
+					<p><%= parameter.stops[i].name%>, <%= parameter.stops[i].state%></p>
+					<%}%>
+
+					<%}%>
+
+                    <p>
+                        You should fill gas on the next stations:
+                    </p>
+
+
+					<%for(var i in parameter.station){%>
+					<p>
+						Station: 
+					</p>
+
+					<p>Name of station: <b><%=parameter.station[i].StationName %></b></p> 
+					<p>Exit: <b><%=parameter.station[i].StationExit %></b></p> 
+					<p>Amount of gallons per load: <b><%=parameter.station[i].StationName %></b></p> 
+					
+					<%}%>
+
+
+					<a href="http://fuel4u.dynamictrackers.com/" style="
+					   background-color: #111;
+					   border-radius: 2px;
+					   color: #fdfdfd;
+					   display: inline-block;
+					   font-size: 14px;
+					   padding: 10px 20px;
+					   margin-bottom: 20px;
+					   text-align: center;
+					   text-decoration: none;
+					   text-transform: uppercase;
+					   ">
+						Go to the app
+					</a>
+
+
+
+
+
+				</div>
+
+				<!-- FOOTER -->
+				<div style="
+					 background-color: #111111;
+					 color:#505050;
+					 font-size: 14px;
+					 line-height: 142%;
+					 padding: 50px;
+					 ">
+
+
+
+					Fuel4U
+					<br />
+					7801 N.W. 71 Street
+					<br />
+					Miami, FL 33166
+					<br />
+					Ph: 786-693-6631
+					<br />
+					Fx: 786-393-5731
+					<br />
+
+					<p style="font-size: 12px">
+						*This email was generated automatically
+						by the Fuel4U system.
+					</p>
+				</div>
+
+
+			</div>
+		</center>
+	</body>
+</html>
